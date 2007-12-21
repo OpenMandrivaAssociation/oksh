@@ -7,6 +7,7 @@ Group:		Shells
 URL:		http://www.delilinux.de/oksh/
 Source0:	http://www.delilinux.de/oksh/%{name}-%{version}.tar.gz
 BuildRequires:	pmake
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 OpenBSDs ksh for Linux

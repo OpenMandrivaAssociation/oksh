@@ -1,7 +1,7 @@
 Summary:	OpenBSDs ksh for Linux
 Name:		oksh
 Version:	0.3
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPLv3+
 Group:		Shells
 URL:		http://www.delilinux.de/oksh/

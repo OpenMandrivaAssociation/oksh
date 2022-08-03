@@ -1,38 +1,27 @@
+# Workaround for incompatible build system
+%global debug_package %{nil}
+
 Summary:	OpenBSDs ksh for Linux
 Name:		oksh
-Version:	0.3
-Release:	%mkrel 4
+Version:	7.1
+Release:	1
 License:	GPLv3+
 Group:		Shells
-URL:		http://www.delilinux.de/oksh/
-Source0:	http://www.delilinux.de/oksh/%{name}-%{version}.tar.gz
-BuildRequires:	pmake
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+URL:		https://github.com/ibara/oksh
+Source0:	https://github.com/ibara/oksh/archive/refs/tags/oksh-%{version}.tar.gz
 
 %description
 OpenBSDs ksh for Linux
 
 %prep
-
-%setup -q
+%autosetup -p1 -n %{name}-%{name}-%{version}
+%configure
 
 %build
-pmake DEFS="%{optflags}" ksh
-
-%check
-pmake test
+%make_build
 
 %install
-rm -rf %{buildroot}
-
-install -d %{buildroot}/bin
-install -d %{buildroot}%{_bindir}
-install -d %{buildroot}%{_mandir}/man1
-
-install -m0755 ksh %{buildroot}/bin/oksh
-ln -s %{buildroot}/bin/oksh %{buildroot}%{_bindir}/oksh
-
-install -m0644 ksh.1 %{buildroot}%{_mandir}/man1/oksh.1
+%make_install
 
 %post
 %{_datadir}/rpm-helper/add-shell %{name} $1 /bin/oksh
@@ -42,8 +31,5 @@ install -m0644 ksh.1 %{buildroot}%{_mandir}/man1/oksh.1
 
 %files
 %defattr(-,root,root)
-%doc ChangeLog.oksh README.oksh
-/bin/oksh
 %{_bindir}/oksh
 %{_mandir}/man1/oksh.1*
-

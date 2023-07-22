@@ -3,8 +3,8 @@
 
 Summary:	OpenBSDs ksh for Linux
 Name:		oksh
-Version:	7.2
-Release:	2
+Version:	7.3
+Release:	1
 License:	GPLv3+
 Group:		Shells
 URL:		https://github.com/ibara/oksh

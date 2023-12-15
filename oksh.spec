@@ -3,7 +3,7 @@
 
 Summary:	OpenBSDs ksh for Linux
 Name:		oksh
-Version:	7.3
+Version:	7.4
 Release:	1
 License:	GPLv3+
 Group:		Shells
